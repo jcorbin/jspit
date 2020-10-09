@@ -26,13 +26,15 @@ html {
   --yellow:         #808000;
   --yellow-orange:  #d7af00;
 
-  --main-bg:    var(--darker-grey);
-  --main-fg:    var(--light-grey);
+  --main-bg: var(--darker-grey);
+  --main-fg: var(--light-grey);
+
   --content-bg: var(--dark-grey);
   --content-fg: var(--dark-white);
 
-  --ui-bg:           var(--dark-grey);
-  --ui-fg:           var(--lighter-grey);
+  --ui-bg: var(--dark-grey);
+  --ui-fg: var(--dark-white);
+
   --ui-accent:       var(--grey);
   --ui-accent-focus: var(--light-grey);
 
@@ -84,6 +86,11 @@ header, footer {
 header { top: 0; }
 footer { bottom: 0; }
 
+header .ctl {
+  float: left;
+  margin: 0 0.5em;
+}
+
 main {
   position: absolute;
   top: 1.5em;
@@ -134,6 +141,10 @@ main .grid {
   cursor: none;
   font-size: 18pt;
 }
+
+main .grid.inspectable { cursor: crosshair; }
+main .grid.inspectable .tile       { padding: 0.1em; }
+main .grid.inspectable .tile:hover { padding: 0; border: 0.1em solid var(--magenta); }
 
 .tile {
   --x: 0;
@@ -201,4 +212,4 @@ ul, ol {
 /* vim:set ts=2 sw=2 expandtab */
 
 
-/*# sourceMappingURL=/jspit/jspit.e255ebf9.css.map */
+/*# sourceMappingURL=/jspit/jspit.ed0aa90d.css.map */

@@ -13774,8 +13774,38 @@ exports.svg = svg;
 },{"./lib/default-template-processor.js":"mAZn","./lib/template-result.js":"SM33","./lib/directive.js":"P1HH","./lib/dom.js":"JQ4u","./lib/part.js":"m4zr","./lib/parts.js":"PIiJ","./lib/render.js":"dvwX","./lib/template-factory.js":"K8aL","./lib/template-instance.js":"nn5n","./lib/template.js":"kXJ6"}],"QCba":[function(require,module,exports) {
 "use strict";
 
-function _templateObject5() {
+function _templateObject8() {
   var data = _taggedTemplateLiteral(["\n          <label for=\"particleID\">Particels:</label>\n          <span id=\"particleID\">", "</span>\n        "]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1>Diffusion Limited Aggregation</h1>\n\n        <p>\n          This implementation fires particles from the origin with random\n          initial radial heading. Each move proceeds by randomly perturbing the\n          heading up to the turning radius set below, and advancing forward\n          orthogonally along the greatest projected axis.\n        </p>\n\n        <fieldset>\n          <legend>Settings</legend>\n\n          <input id=\"dla-turnDenom\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-turnDenom\">Turning Radius: Math.PI/", "</label>\n          <br>\n\n          <input id=\"dla-rate\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-rate\">Particle Move Rate: every ", "ms</label>\n          <br>\n\n          <button @click=", ">Run</button>\n        </fieldset>\n      </section>\n\n      <section>\n\n        Inspired by\n        <a href=\"//web.archive.org/web/20151003181050/http://codepen.io/DonKarlssonSan/full/BopXpq/\">2015-10 codepen by DonKarlssonSan</a>\n        <br>\n        <br>\n\n        Other resources:\n        <ul>\n          <li><a href\"https://roguelike.club/event2020.html\">Roguecel 2020 talk by Herbert Wolverson</a> demonstrated DLA among other techniques</li>\n          <li><a href=\"//www.roguebasin.com/index.php?title=Diffusion-limited_aggregation\">Roguebasin DLA article</a></li>\n          <li><a href=\"//en.wikipedia.org/wiki/Diffusion-limited_aggregation\">WikiPedia on the wider topic</a></li>\n          <li><a href=\"//paulbourke.net/fractals/dla/\">Paul Boruke, reference from DonKarlssonSan</a></li>\n        </ul>\n\n      </section>\n    "]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["player@", ",", "+", "+", " view@", ",", "+", "+", ""]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1 align=\"center\">Welcome traveler</h1>\n        <p>\n          Boop a color, get a color!\n        </p>\n        <p>\n          This is the first and simplest example of jspit's <code>TileGrid</code>.\n        </p>\n        <p>\n          <button @click=", ">Ok!</button>\n        </p>\n      </section>\n    "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -13785,7 +13815,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1>Diffusion Limited Aggregation</h1>\n\n        <p>\n          This implementation fires particles from the origin with random\n          initial radial heading. Each move proceeds by randomly perturbing the\n          heading up to the turning radius set below, and advancing forward\n          orthogonally along the greatest projected axis.\n        </p>\n\n        <fieldset>\n          <legend>Settings</legend>\n\n          <input id=\"dla-turnDenom\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-turnDenom\">Turning Radius: Math.PI/", "</label>\n          <br>\n\n          <input id=\"dla-rate\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-rate\">Particle Move Rate: every ", "ms</label>\n          <br>\n\n          <button @click=", ">Run</button>\n        </fieldset>\n      </section>\n\n      <section>\n\n        Inspired by\n        <a href=\"//web.archive.org/web/20151003181050/http://codepen.io/DonKarlssonSan/full/BopXpq/\">2015-10 codepen by DonKarlssonSan</a>\n        <br>\n        <br>\n\n        Other resources:\n        <ul>\n          <li><a href\"https://roguelike.club/event2020.html\">Roguecel 2020 talk by Herbert Wolverson</a> demonstrated DLA among other techniques</li>\n          <li><a href=\"//www.roguebasin.com/index.php?title=Diffusion-limited_aggregation\">Roguebasin DLA article</a></li>\n          <li><a href=\"//en.wikipedia.org/wiki/Diffusion-limited_aggregation\">WikiPedia on the wider topic</a></li>\n          <li><a href=\"//paulbourke.net/fractals/dla/\">Paul Boruke, reference from DonKarlssonSan</a></li>\n        </ul>\n\n      </section>\n    "]);
+  var data = _taggedTemplateLiteral(["// mouse-over a tile to inspect it"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -13795,7 +13825,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["player@", ",", "+", "+", " view@", ",", "+", "+", ""]);
+  var data = _taggedTemplateLiteral(["// mouse-over a tile to inspect it"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -13805,7 +13835,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1 align=\"center\">Welcome traveler</h1>\n        <p>\n          Boop a color, get a color!\n        </p>\n        <p>\n          This is the first and simplest example of jspit's <code>TileGrid</code>.\n        </p>\n        <p>\n          <button @click=", ">Ok!</button>\n        </p>\n      </section>\n    "]);
+  var data = _taggedTemplateLiteral(["@", ",", " ", ""]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -13899,6 +13929,25 @@ var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, gene
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
+
+var __classPrivateFieldSet = this && this.__classPrivateFieldSet || function (receiver, privateMap, value) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to set private field on non-instance");
+  }
+
+  privateMap.set(receiver, value);
+  return value;
+};
+
+var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (receiver, privateMap) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+};
+
+var _origGridClassname, _boundMouseMoved, _inspectingIDs, _viewer;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -14058,8 +14107,8 @@ var TileGrid = /*#__PURE__*/function () {
     }
   }, {
     key: "tilesAt",
-    value: function tilesAt(at, selector) {
-      var res = []; // TODO :shrug: spatial index
+    value: function tilesAt(at) {
+      var tiles = []; // TODO :shrug: spatial index
 
       var _iterator3 = _createForOfIteratorHelper(this.el.querySelectorAll(".tile".concat(selector || ''))),
           _step3;
@@ -14069,7 +14118,7 @@ var TileGrid = /*#__PURE__*/function () {
           var other = _step3.value;
           var el = other;
           var pos = this.getTilePosition(el);
-          if (pos.x === at.x && pos.y === at.y) res.push(el);
+          if (pos.x === at.x && pos.y === at.y) tiles.push(el);
         }
       } catch (err) {
         _iterator3.e(err);
@@ -14077,7 +14126,7 @@ var TileGrid = /*#__PURE__*/function () {
         _iterator3.f();
       }
 
-      return res;
+      return tiles;
     }
   }, {
     key: "moveViewTo",
@@ -14352,10 +14401,17 @@ function coalesceKeys(presses) {
 }
 
 var Sim = /*#__PURE__*/function () {
-  function Sim(modal, view, foot, cont) {
+  function Sim(modal, view, head, foot, cont) {
     _classCallCheck(this, Sim);
 
     this.scen = null;
+
+    _origGridClassname.set(this, void 0);
+
+    _boundMouseMoved.set(this, void 0);
+
+    _inspectingIDs.set(this, void 0);
+
     this.inputRate = 100; // rate at which to coalesce and process movement input
 
     this.nudgeBy = 0.2; // proportion to scroll viewport by when at goes outside
@@ -14364,10 +14420,13 @@ var Sim = /*#__PURE__*/function () {
     this.modal = modal;
     this.grid = new TileGrid(view);
     this.keys = new KeyMap();
+    this.head = head;
     this.foot = foot;
     this.cont = cont;
     this.keys.filter = this.filterKeys.bind(this);
     this.keys.register(this.cont || this.grid.el);
+
+    __classPrivateFieldSet(this, _origGridClassname, this.grid.el.className);
   }
 
   _createClass(Sim, [{
@@ -14382,8 +14441,71 @@ var Sim = /*#__PURE__*/function () {
       this.grid.clear();
       this.scen = scen;
       this.setStatus(null);
+      this.grid.el.className = __classPrivateFieldGet(this, _origGridClassname);
+      this.clearCtls();
       this.modal.style.display = 'none';
-      if (this.scen) this.scen.setup(this);
+      if (__classPrivateFieldGet(this, _boundMouseMoved)) this.grid.el.removeEventListener('mousemove', __classPrivateFieldGet(this, _boundMouseMoved));
+
+      if (this.scen) {
+        this.scen.setup(this);
+
+        if (this.scen.inspect) {
+          if (!__classPrivateFieldGet(this, _boundMouseMoved)) __classPrivateFieldSet(this, _boundMouseMoved, this.mouseMoved.bind(this));
+          this.grid.el.addEventListener('mousemove', __classPrivateFieldGet(this, _boundMouseMoved));
+          this.grid.el.classList.add('inspectable');
+        }
+      }
+    }
+  }, {
+    key: "mouseMoved",
+    value: function mouseMoved(ev) {
+      var tiles = document.elementsFromPoint(ev.clientX, ev.clientY).filter(function (el) {
+        return el.classList.contains('tile');
+      });
+      if (!this.scen || !this.scen.inspect) return;
+      var ids = tiles.map(function (_ref10) {
+        var id = _ref10.id;
+        return id;
+      }).join(';');
+      if (__classPrivateFieldGet(this, _inspectingIDs) === ids) return;
+
+      __classPrivateFieldSet(this, _inspectingIDs, ids); // if (!tiles.length) return;
+      // TODO would be nice to be able to just translate event coordinates into
+      // tile space
+
+
+      var pos = this.grid.getTilePosition(tiles[0]);
+      this.scen.inspect(this, pos, tiles);
+    }
+  }, {
+    key: "clearCtls",
+    value: function clearCtls() {
+      if (!this.head) return;
+
+      var _iterator5 = _createForOfIteratorHelper(this.head.querySelectorAll('.ctl.scen')),
+          _step5;
+
+      try {
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var el = _step5.value;
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }
+      } catch (err) {
+        _iterator5.e(err);
+      } finally {
+        _iterator5.f();
+      }
+    }
+  }, {
+    key: "addCtl",
+    value: function addCtl(tmpl) {
+      if (!this.head) return null;
+      var ctl = document.createElement('div');
+      ctl.classList.add('ctl');
+      ctl.classList.add('scen');
+      this.head.appendChild(ctl);
+      lit_html_1.render(tmpl, ctl);
+      return ctl;
     }
   }, {
     key: "showModal",
@@ -14444,6 +14566,8 @@ var Sim = /*#__PURE__*/function () {
   return Sim;
 }();
 
+_origGridClassname = new WeakMap(), _boundMouseMoved = new WeakMap(), _inspectingIDs = new WeakMap();
+
 var Hello = /*#__PURE__*/function () {
   function Hello() {
     _classCallCheck(this, Hello);
@@ -14462,12 +14586,26 @@ var Hello = /*#__PURE__*/function () {
 var ColorBoop = /*#__PURE__*/function () {
   function ColorBoop() {
     _classCallCheck(this, ColorBoop);
+
+    this.colors = ['black', 'darker-grey', 'dark-grey', 'grey', 'light-grey', 'lighter-grey', 'white', 'dark-white', 'blue', 'bright-purple', 'cyan', 'dark-orange', 'dark-sea-green', 'green', 'light-cyan', 'magenta', 'orange', 'purple', 'red', 'red-orange', 'yellow', 'yellow-orange'];
+
+    _viewer.set(this, void 0);
   }
 
   _createClass(ColorBoop, [{
+    key: "inspect",
+    value: function inspect(_ctx, pos, tiles) {
+      if (__classPrivateFieldGet(this, _viewer)) lit_html_1.render(tiles.length ? lit_html_1.html(_templateObject2(), pos.x, pos.y, tiles.map(function (_ref11) {
+        var id = _ref11.id;
+        return id;
+      })) : lit_html_1.html(_templateObject3()), __classPrivateFieldGet(this, _viewer));
+    }
+  }, {
     key: "setup",
     value: function setup(ctx) {
-      ctx.showModal(lit_html_1.html(_templateObject2(), function () {
+      __classPrivateFieldSet(this, _viewer, ctx.addCtl(lit_html_1.html(_templateObject4())));
+
+      ctx.showModal(lit_html_1.html(_templateObject5(), function () {
         return ctx.showModal(null);
       }));
       ctx.grid.createTile('at', {
@@ -14478,7 +14616,7 @@ var ColorBoop = /*#__PURE__*/function () {
           y: 10
         }
       });
-      ColorBoop.colors.forEach(function (color, i) {
+      this.colors.forEach(function (color, i) {
         ctx.grid.createTile("fg-swatch-".concat(color), {
           fg: "var(--".concat(color, ")"),
           tag: ['solid', 'swatch', 'fg'],
@@ -14507,15 +14645,15 @@ var ColorBoop = /*#__PURE__*/function () {
     key: "act",
     value: function act(ctx, action) {
       if (!action.actor.classList.contains('solid')) return action;
-      var hits = ctx.grid.tilesAt(action.targ, '.solid');
+      var hits = ctx.grid.tilesAt(action.targ, 'solid');
 
       if (!(action.ok = !hits.length)) {
-        var _iterator5 = _createForOfIteratorHelper(hits),
-            _step5;
+        var _iterator6 = _createForOfIteratorHelper(hits),
+            _step6;
 
         try {
-          for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-            var hit = _step5.value;
+          for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+            var hit = _step6.value;
 
             if (hit.classList.contains('swatch')) {
               var spec = {};
@@ -14524,9 +14662,9 @@ var ColorBoop = /*#__PURE__*/function () {
             }
           }
         } catch (err) {
-          _iterator5.e(err);
+          _iterator6.e(err);
         } finally {
-          _iterator5.f();
+          _iterator6.f();
         }
       }
 
@@ -14547,14 +14685,14 @@ var ColorBoop = /*#__PURE__*/function () {
           vy = _ctx$grid$viewport.y,
           vw = _ctx$grid$viewport.width,
           vh = _ctx$grid$viewport.height;
-      ctx.setStatus(lit_html_1.html(_templateObject3(), x, y, w, h, vx, vy, Math.floor(vw), Math.floor(vh)));
+      ctx.setStatus(lit_html_1.html(_templateObject6(), x, y, w, h, vx, vy, Math.floor(vw), Math.floor(vh)));
     }
   }]);
 
   return ColorBoop;
 }();
 
-ColorBoop.colors = ['black', 'darker-grey', 'dark-grey', 'grey', 'light-grey', 'lighter-grey', 'white', 'dark-white', 'blue', 'bright-purple', 'cyan', 'dark-orange', 'dark-sea-green', 'green', 'light-cyan', 'magenta', 'orange', 'purple', 'red', 'red-orange', 'yellow', 'yellow-orange'];
+_viewer = new WeakMap();
 
 var DLA = /*#__PURE__*/function () {
   function DLA() {
@@ -14585,7 +14723,7 @@ var DLA = /*#__PURE__*/function () {
   }, {
     key: "updateCtl",
     value: function updateCtl(ctx) {
-      ctx.showModal(lit_html_1.html(_templateObject4(), this.turnDenom, this.turnDenomChanged.bind(this, ctx), this.turnDenom, this.rate, this.rateChanged.bind(this, ctx), this.rate, function () {
+      ctx.showModal(lit_html_1.html(_templateObject7(), this.turnDenom, this.turnDenomChanged.bind(this, ctx), this.turnDenom, this.rate, this.rateChanged.bind(this, ctx), this.rate, function () {
         return ctx.showModal(null);
       }));
     }
@@ -14620,7 +14758,7 @@ var DLA = /*#__PURE__*/function () {
             fg: 'var(--green)',
             text: '*'
           });
-          ctx.setStatus(lit_html_1.html(_templateObject5(), this.particleID));
+          ctx.setStatus(lit_html_1.html(_templateObject8(), this.particleID));
           continue;
         }
 
@@ -14644,7 +14782,7 @@ var DLA = /*#__PURE__*/function () {
           if (dx < 0) pos.x--;else pos.x++;
         }
 
-        if (!ctx.grid.tilesAt(pos, '.particle').length) {
+        if (!ctx.grid.tilesAt(pos, 'particle').length) {
           delete p.dataset.heading;
           ctx.grid.updateTile(p, {
             tag: ['particle'],
@@ -14668,12 +14806,12 @@ var DLA = /*#__PURE__*/function () {
 var demos = [Hello, ColorBoop, DLA];
 
 function setupDemoSelector(boot, sel, change) {
-  var _iterator6 = _createForOfIteratorHelper(demos),
-      _step6;
+  var _iterator7 = _createForOfIteratorHelper(demos),
+      _step7;
 
   try {
-    for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-      var demo = _step6.value;
+    for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+      var demo = _step7.value;
       var opt = document.createElement('option');
       opt.value = demo.name;
       opt.innerText = demo.name; // TODO description?
@@ -14681,9 +14819,9 @@ function setupDemoSelector(boot, sel, change) {
       sel.appendChild(opt);
     }
   } catch (err) {
-    _iterator6.e(err);
+    _iterator7.e(err);
   } finally {
-    _iterator6.f();
+    _iterator7.f();
   }
 
   if (window.location.hash) sel.value = window.location.hash.slice(1);
@@ -14691,12 +14829,12 @@ function setupDemoSelector(boot, sel, change) {
   var changed = function changed() {
     var demo = null;
 
-    var _iterator7 = _createForOfIteratorHelper(demos),
-        _step7;
+    var _iterator8 = _createForOfIteratorHelper(demos),
+        _step8;
 
     try {
-      for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-        var d = _step7.value;
+      for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+        var d = _step8.value;
 
         if (d.name === sel.value) {
           demo = new d();
@@ -14704,9 +14842,9 @@ function setupDemoSelector(boot, sel, change) {
         }
       }
     } catch (err) {
-      _iterator7.e(err);
+      _iterator8.e(err);
     } finally {
-      _iterator7.f();
+      _iterator8.f();
     }
 
     if (!demo) sel.value = 'hello';
@@ -14722,7 +14860,7 @@ function setupDemoSelector(boot, sel, change) {
 
 function main() {
   return __awaiter(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var main, modal, demoSel, demoBoot, mainGrid, foot, running, sim, last, dt, next;
+    var main, modal, demoSel, demoBoot, mainGrid, head, foot, running, sim, last, dt, next;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -14781,43 +14919,53 @@ function main() {
             throw new Error('no <main> .grid element');
 
           case 17:
+            head = document.querySelector('header');
+
+            if (head) {
+              _context.next = 20;
+              break;
+            }
+
+            throw new Error('no <header> element');
+
+          case 20:
             foot = document.querySelector('footer');
 
             if (foot) {
-              _context.next = 20;
+              _context.next = 23;
               break;
             }
 
             throw new Error('no <footer> element');
 
-          case 20:
+          case 23:
             running = true;
-            sim = new Sim(modal, mainGrid, foot, document.body);
+            sim = new Sim(modal, mainGrid, head, foot, document.body);
             setupDemoSelector(demoBoot, demoSel, sim.change.bind(sim));
-            _context.next = 25;
+            _context.next = 28;
             return nextFrame();
 
-          case 25:
+          case 28:
             last = _context.sent;
             dt = 0;
 
-          case 27:
+          case 30:
             if (!running) {
-              _context.next = 35;
+              _context.next = 38;
               break;
             }
 
             sim.update(dt);
-            _context.next = 31;
+            _context.next = 34;
             return nextFrame();
 
-          case 31:
+          case 34:
             next = _context.sent;
             dt = next - last, last = next;
-            _context.next = 27;
+            _context.next = 30;
             break;
 
-          case 35:
+          case 38:
           case "end":
             return _context.stop();
         }
@@ -14828,4 +14976,4 @@ function main() {
 
 main(); // vim:set ts=2 sw=2 expandtab:
 },{"core-js/stable":"UJhP","regenerator-runtime/runtime":"KA2S","lit-html":"KMqM"}]},{},["QCba"], null)
-//# sourceMappingURL=/jspit/jspit.17c7e8bd.js.map
+//# sourceMappingURL=/jspit/jspit.53e7199d.js.map
