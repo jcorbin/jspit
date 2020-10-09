@@ -14563,6 +14563,7 @@ var DLA = /*#__PURE__*/function () {
     this.particleID = 0;
     this.rate = 5;
     this.turnDenom = 8;
+    this.stepLimit = 50;
     this.elapsed = 0;
   }
 
@@ -14606,9 +14607,9 @@ var DLA = /*#__PURE__*/function () {
     key: "update",
     value: function update(ctx, dt) {
       this.elapsed += dt;
-      var n = Math.floor(this.elapsed / this.rate);
+      var n = Math.min(this.stepLimit, Math.floor(this.elapsed / this.rate));
       if (!n) return;
-      this.elapsed %= this.rate;
+      this.elapsed -= n * this.rate;
 
       for (var i = 0; i < n; ++i) {
         var p = ctx.grid.getTile("particle-".concat(this.particleID));
@@ -14827,4 +14828,4 @@ function main() {
 
 main(); // vim:set ts=2 sw=2 expandtab:
 },{"core-js/stable":"UJhP","regenerator-runtime/runtime":"KA2S","lit-html":"KMqM"}]},{},["QCba"], null)
-//# sourceMappingURL=/jspit/jspit.0968138d.js.map
+//# sourceMappingURL=/jspit/jspit.17c7e8bd.js.map
