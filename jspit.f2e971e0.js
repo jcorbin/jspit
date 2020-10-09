@@ -13774,6 +13774,36 @@ exports.svg = svg;
 },{"./lib/default-template-processor.js":"mAZn","./lib/template-result.js":"SM33","./lib/directive.js":"P1HH","./lib/dom.js":"JQ4u","./lib/part.js":"m4zr","./lib/parts.js":"PIiJ","./lib/render.js":"dvwX","./lib/template-factory.js":"K8aL","./lib/template-instance.js":"nn5n","./lib/template.js":"kXJ6"}],"QCba":[function(require,module,exports) {
 "use strict";
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n          <label for=\"particleID\">Particels:</label>\n          <span id=\"particleID\">", "</span>\n        "]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1>Diffusion Limited Aggregation</h1>\n\n        <p>\n          This implementation fires particles from the origin with random\n          initial radial heading. Each move proceeds by randomly perturbing the\n          heading up to the turning radius set below, and advancing forward\n          orthogonally along the greatest projected axis.\n        </p>\n\n        <fieldset>\n          <legend>Settings</legend>\n\n          <input id=\"dla-turnDenom\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-turnDenom\">Turning Radius: Math.PI/", "</label>\n          <br>\n\n          <input id=\"dla-rate\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-rate\">Particle Move Rate: every ", "ms</label>\n          <br>\n\n          <button @click=", ">Run</button>\n        </fieldset>\n      </section>\n\n      <section>\n\n        Inspired by\n        <a href=\"//web.archive.org/web/20151003181050/http://codepen.io/DonKarlssonSan/full/BopXpq/\">2015-10 codepen by DonKarlssonSan</a>\n\n        Other resources:\n        <ul>\n          <li><a href\"https://roguelike.club/event2020.html\">Roguecel 2020 talk by Herbert Wolverson</a> demonstrated DLA among other techniques</li>\n          <li><a href=\"//www.roguebasin.com/index.php?title=Diffusion-limited_aggregation\">Roguebasin DLA article</a></li>\n          <li><a href=\"//en.wikipedia.org/wiki/Diffusion-limited_aggregation\">WikiPedia on the wider topic</a></li>\n          <li><a href=\"//paulbourke.net/fractals/dla/\">Paul Boruke, reference from DonKarlssonSan</a></li>\n        </ul>\n\n      </section>\n    "]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["player@", ",", "+", "+", " view@", ",", "+", "+", ""]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n      <section>\n        <h1 align=\"center\">Welcome traveler</h1>\n        <p>\n          Boop a color, get a color!\n        </p>\n        <p>\n          This is the first and simplest example of jspit's <code>TileGrid</code>.\n        </p>\n        <p>\n          <button @click=", ">Ok!</button>\n        </p>\n      </section>\n    "]);
 
@@ -14054,6 +14084,8 @@ var TileGrid = /*#__PURE__*/function () {
     value: function moveViewTo(_ref3) {
       var x = _ref3.x,
           y = _ref3.y;
+      x = Math.floor(x);
+      y = Math.floor(y);
       this.el.style.setProperty('--xlate-x', x.toString());
       this.el.style.setProperty('--xlate-y', y.toString());
       return {
@@ -14075,17 +14107,32 @@ var TileGrid = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "nudgeViewTo",
-    value: function nudgeViewTo(_ref5, _ref6) {
+    key: "centerViewOn",
+    value: function centerViewOn(_ref5) {
       var x = _ref5.x,
           y = _ref5.y;
-      var nx = _ref6.x,
-          ny = _ref6.y;
       var _this$viewport = this.viewport,
-          vx = _this$viewport.x,
-          vy = _this$viewport.y,
           width = _this$viewport.width,
           height = _this$viewport.height;
+      x -= width / 2, y -= height / 2;
+      return this.moveViewTo({
+        x: x,
+        y: y
+      });
+    }
+  }, {
+    key: "nudgeViewTo",
+    value: function nudgeViewTo(_ref6, nudge) {
+      var x = _ref6.x,
+          y = _ref6.y;
+      var _this$viewport2 = this.viewport,
+          vx = _this$viewport2.x,
+          vy = _this$viewport2.y,
+          width = _this$viewport2.width,
+          height = _this$viewport2.height;
+      var nx = width,
+          ny = height;
+      if (typeof nudge === 'number') nx *= nudge, ny *= nudge;else nx = nudge.x, ny = nudge.y;
 
       while (true) {
         var dx = x < vx ? -1 : x > vx + width ? 1 : 0;
@@ -14330,23 +14377,24 @@ var Sim = /*#__PURE__*/function () {
       return !event.altKey && !event.ctrlKey && !event.metaKey;
     }
   }, {
+    key: "change",
+    value: function change(scen) {
+      this.grid.clear();
+      this.scen = scen;
+      this.setStatus(null);
+      this.modal.style.display = 'none';
+      if (this.scen) this.scen.setup(this);
+    }
+  }, {
     key: "showModal",
     value: function showModal(tmpl) {
       lit_html_1.render(tmpl, this.modal);
       this.modal.style.display = tmpl ? '' : 'none';
     }
   }, {
-    key: "change",
-    value: function change(scen) {
-      this.grid.clear();
-      this.scen = scen;
-      if (this.scen) this.scen.setup(this);
-      this.updateFooter();
-    }
-  }, {
-    key: "updateFooter",
-    value: function updateFooter() {
-      if (this.foot) this.foot.innerText = this.scen && this.scen.status && this.foot ? this.scen.status(this) : '';
+    key: "setStatus",
+    value: function setStatus(tmpl) {
+      if (this.foot) lit_html_1.render(tmpl, this.foot);
     }
   }, {
     key: "update",
@@ -14355,6 +14403,8 @@ var Sim = /*#__PURE__*/function () {
         this.consumeInput();
         this.lastInput = this.lastInput % 1;
       }
+
+      if (this.scen && this.scen.update && this.modal.style.display === 'none') this.scen.update(this, dt);
     }
   }, {
     key: "consumeInput",
@@ -14386,17 +14436,8 @@ var Sim = /*#__PURE__*/function () {
 
       if (action.ok) {
         this.grid.moveTileTo(action.actor, action.targ);
-        var _this$grid$viewport = this.grid.viewport,
-            width = _this$grid$viewport.width,
-            height = _this$grid$viewport.height;
-        var nudge = {
-          x: Math.floor(width * this.nudgeBy),
-          y: Math.floor(height * this.nudgeBy)
-        };
-        this.grid.nudgeViewTo(action.targ, nudge);
+        this.grid.nudgeViewTo(action.targ, this.nudgeBy);
       }
-
-      this.updateFooter();
     }
   }]);
 
@@ -14437,7 +14478,7 @@ var ColorBoop = /*#__PURE__*/function () {
           y: 10
         }
       });
-      ['black', 'darker-grey', 'dark-grey', 'grey', 'light-grey', 'lighter-grey', 'white', 'dark-white', 'blue', 'bright-purple', 'cyan', 'dark-orange', 'dark-sea-green', 'green', 'light-cyan', 'magenta', 'orange', 'purple', 'red', 'red-orange', 'yellow', 'yellow-orange'].forEach(function (color, i) {
+      ColorBoop.colors.forEach(function (color, i) {
         ctx.grid.createTile("fg-swatch-".concat(color), {
           fg: "var(--".concat(color, ")"),
           tag: ['solid', 'swatch', 'fg'],
@@ -14456,6 +14497,10 @@ var ColorBoop = /*#__PURE__*/function () {
             y: i
           }
         });
+      });
+      ctx.grid.centerViewOn({
+        x: 10,
+        y: 10
       });
     }
   }, {
@@ -14488,8 +14533,8 @@ var ColorBoop = /*#__PURE__*/function () {
       return action;
     }
   }, {
-    key: "status",
-    value: function status(ctx) {
+    key: "update",
+    value: function update(ctx, _dt) {
       var _ctx$grid$getTilePosi = ctx.grid.getTilePosition('at'),
           x = _ctx$grid$getTilePosi.x,
           y = _ctx$grid$getTilePosi.y;
@@ -14502,16 +14547,126 @@ var ColorBoop = /*#__PURE__*/function () {
           vy = _ctx$grid$viewport.y,
           vw = _ctx$grid$viewport.width,
           vh = _ctx$grid$viewport.height;
-      return "player@".concat(x, ",").concat(y, "+").concat(w, "+").concat(h, " view@").concat(vx, ",").concat(vy, "+").concat(Math.floor(vw), "+").concat(Math.floor(vh));
+      ctx.setStatus(lit_html_1.html(_templateObject3(), x, y, w, h, vx, vy, Math.floor(vw), Math.floor(vh)));
     }
   }]);
 
   return ColorBoop;
 }();
 
-var demos = [Hello, ColorBoop];
+ColorBoop.colors = ['black', 'darker-grey', 'dark-grey', 'grey', 'light-grey', 'lighter-grey', 'white', 'dark-white', 'blue', 'bright-purple', 'cyan', 'dark-orange', 'dark-sea-green', 'green', 'light-cyan', 'magenta', 'orange', 'purple', 'red', 'red-orange', 'yellow', 'yellow-orange'];
 
-function setupDemoSelector(sel, change) {
+var DLA = /*#__PURE__*/function () {
+  function DLA() {
+    _classCallCheck(this, DLA);
+
+    this.particleID = 0;
+    this.rate = 5;
+    this.turnDenom = 8;
+    this.elapsed = 0;
+  }
+
+  _createClass(DLA, [{
+    key: "setup",
+    value: function setup(ctx) {
+      ctx.grid.createTile("particle-".concat(++this.particleID), {
+        tag: ['particle', 'init'],
+        bg: 'var(--black)',
+        fg: 'var(--dark-grey)',
+        text: '.'
+      });
+      ctx.grid.centerViewOn({
+        x: 0,
+        y: 0
+      });
+      this.updateCtl(ctx);
+    }
+  }, {
+    key: "updateCtl",
+    value: function updateCtl(ctx) {
+      ctx.showModal(lit_html_1.html(_templateObject4(), this.turnDenom, this.turnDenomChanged.bind(this, ctx), this.turnDenom, this.rate, this.rateChanged.bind(this, ctx), this.rate, function () {
+        return ctx.showModal(null);
+      }));
+    }
+  }, {
+    key: "turnDenomChanged",
+    value: function turnDenomChanged(ctx, ev) {
+      var value = ev.target.value;
+      this.turnDenom = parseFloat(value);
+      this.updateCtl(ctx);
+    }
+  }, {
+    key: "rateChanged",
+    value: function rateChanged(ctx, ev) {
+      var value = ev.target.value;
+      this.rate = parseFloat(value);
+      this.updateCtl(ctx);
+    }
+  }, {
+    key: "update",
+    value: function update(ctx, dt) {
+      this.elapsed += dt;
+      var n = Math.floor(this.elapsed / this.rate);
+      if (!n) return;
+      this.elapsed %= this.rate;
+
+      for (var i = 0; i < n; ++i) {
+        var p = ctx.grid.getTile("particle-".concat(this.particleID));
+
+        if (!p || !p.classList.contains('live')) {
+          ctx.grid.createTile("particle-".concat(++this.particleID), {
+            tag: ['particle', 'live'],
+            fg: 'var(--green)',
+            text: '*'
+          });
+          ctx.setStatus(lit_html_1.html(_templateObject5(), this.particleID));
+          continue;
+        }
+
+        var heading = p.dataset.heading && parseFloat(p.dataset.heading);
+
+        if (!heading) {
+          heading = Math.random() * 2 * Math.PI;
+        } else {
+          heading += Math.random() * Math.PI / this.turnDenom;
+          heading %= 2 * Math.PI;
+        }
+
+        p.dataset.heading = heading.toString();
+        var dx = Math.cos(heading);
+        var dy = Math.sin(heading);
+        var pos = ctx.grid.getTilePosition(p);
+
+        if (Math.abs(dy) > Math.abs(dx)) {
+          if (dy < 0) pos.y--;else pos.y++;
+        } else {
+          if (dx < 0) pos.x--;else pos.x++;
+        }
+
+        if (!ctx.grid.tilesAt(pos, '.particle').length) {
+          delete p.dataset.heading;
+          ctx.grid.updateTile(p, {
+            tag: ['particle'],
+            bg: 'var(--black)',
+            fg: 'var(--grey)',
+            text: '.',
+            pos: pos
+          });
+          continue;
+        }
+
+        ctx.grid.moveTileTo(p, pos);
+        ctx.grid.nudgeViewTo(pos, 0.2);
+      }
+    }
+  }]);
+
+  return DLA;
+}();
+
+var demos = [Hello, ColorBoop, DLA];
+
+function setupDemoSelector(boot, sel, change) {
   var _iterator6 = _createForOfIteratorHelper(demos),
       _step6;
 
@@ -14529,6 +14684,8 @@ function setupDemoSelector(sel, change) {
   } finally {
     _iterator6.f();
   }
+
+  if (window.location.hash) sel.value = window.location.hash.slice(1);
 
   var changed = function changed() {
     var demo = null;
@@ -14552,17 +14709,19 @@ function setupDemoSelector(sel, change) {
     }
 
     if (!demo) sel.value = 'hello';
+    window.location.hash = "#".concat(sel.value);
     change(demo || new Hello());
     sel.blur();
   };
 
   sel.addEventListener('change', changed);
+  boot.addEventListener('click', changed);
   changed();
 }
 
 function main() {
   return __awaiter(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var main, modal, demoSel, mainGrid, foot, sim, last, dt, next;
+    var main, modal, demoSel, demoBoot, mainGrid, foot, running, sim, last, dt, next;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -14601,52 +14760,63 @@ function main() {
             throw new Error('no <select#demo> element');
 
           case 11:
+            demoBoot = document.querySelector('#reboot');
+
+            if (demoBoot) {
+              _context.next = 14;
+              break;
+            }
+
+            throw new Error('no #reboot element');
+
+          case 14:
             mainGrid = main.querySelector('.grid');
 
             if (mainGrid) {
-              _context.next = 14;
+              _context.next = 17;
               break;
             }
 
             throw new Error('no <main> .grid element');
 
-          case 14:
+          case 17:
             foot = document.querySelector('footer');
 
             if (foot) {
-              _context.next = 17;
+              _context.next = 20;
               break;
             }
 
             throw new Error('no <footer> element');
 
-          case 17:
+          case 20:
+            running = true;
             sim = new Sim(modal, mainGrid, foot, document.body);
-            setupDemoSelector(demoSel, sim.change.bind(sim));
-            _context.next = 21;
+            setupDemoSelector(demoBoot, demoSel, sim.change.bind(sim));
+            _context.next = 25;
             return nextFrame();
 
-          case 21:
+          case 25:
             last = _context.sent;
             dt = 0;
 
-          case 23:
-            if (!true) {
-              _context.next = 31;
+          case 27:
+            if (!running) {
+              _context.next = 35;
               break;
             }
 
             sim.update(dt);
-            _context.next = 27;
+            _context.next = 31;
             return nextFrame();
 
-          case 27:
+          case 31:
             next = _context.sent;
             dt = next - last, last = next;
-            _context.next = 23;
+            _context.next = 27;
             break;
 
-          case 31:
+          case 35:
           case "end":
             return _context.stop();
         }
@@ -14657,4 +14827,4 @@ function main() {
 
 main(); // vim:set ts=2 sw=2 expandtab:
 },{"core-js/stable":"UJhP","regenerator-runtime/runtime":"KA2S","lit-html":"KMqM"}]},{},["QCba"], null)
-//# sourceMappingURL=/jspit/jspit.2ddb303c.js.map
+//# sourceMappingURL=/jspit/jspit.f2e971e0.js.map
