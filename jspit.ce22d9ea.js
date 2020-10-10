@@ -15027,7 +15027,7 @@ var DLA = /*#__PURE__*/function () {
         }
 
         ctx.grid.moveTileTo(p, pos);
-        ctx.grid.nudgeViewTo(pos, 0.2);
+        if (!ctx.grid.queryTiles('keyMove').length) ctx.grid.nudgeViewTo(pos, 0.2);
       }
     }
   }, {
@@ -15222,4 +15222,4 @@ function main() {
 
 main(); // vim:set ts=2 sw=2 expandtab:
 },{"core-js/stable":"UJhP","regenerator-runtime/runtime":"KA2S","lit-html":"KMqM"}]},{},["QCba"], null)
-//# sourceMappingURL=/jspit/jspit.0d2d7858.js.map
+//# sourceMappingURL=/jspit/jspit.ce22d9ea.js.map
