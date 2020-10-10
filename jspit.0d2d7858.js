@@ -13774,8 +13774,48 @@ exports.svg = svg;
 },{"./lib/default-template-processor.js":"mAZn","./lib/template-result.js":"SM33","./lib/directive.js":"P1HH","./lib/dom.js":"JQ4u","./lib/part.js":"m4zr","./lib/parts.js":"PIiJ","./lib/render.js":"dvwX","./lib/template-factory.js":"K8aL","./lib/template-instance.js":"nn5n","./lib/template.js":"kXJ6"}],"QCba":[function(require,module,exports) {
 "use strict";
 
+function _templateObject12() {
+  var data = _taggedTemplateLiteral(["\n        <label for=\"particleID\">Particels:</label>\n        <span id=\"particleID\">", "</span>\n      "]);
+
+  _templateObject12 = function _templateObject12() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject11() {
+  var data = _taggedTemplateLiteral(["\n                <input id=\"dla-rate\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n                <label for=\"dla-rate\">Particle Move Rate: every ", "ms</label>\n              "]);
+
+  _templateObject11 = function _templateObject11() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject10() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  var data = _taggedTemplateLiteral(["\n              <button @click=", ">Drop Player</button>\n            "]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n          <label for=\"particleID\">Particels:</label>\n          <span id=\"particleID\">", "</span>\n        "]);
+  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1>Diffusion Limited Aggregation</h1>\n\n        <p>\n          This implementation fires particles from the origin with random\n          initial radial heading. Each move proceeds by randomly perturbing the\n          heading up to the turning radius set below, and advancing forward\n          orthogonally along the greatest projected axis.\n        </p>\n\n        <fieldset>\n          <legend>Settings</legend>\n\n          <input id=\"dla-turnLeft\" type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"", "\" @change=", ">\n          <label for=\"dla-turnLeft\">Left Turning Arc: upto Math.PI/", "</label>\n          <br>\n\n          <input id=\"dla-turnRight\" type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"", "\" @change=", ">\n          <label for=\"dla-turnRight\">Right Turning Radius: upto Math.PI/", "</label>\n          <br>\n\n          <input id=\"dla-rate\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-rate\">Particle Move Rate: every ", "ms</label>\n          <br>\n\n          <button @click=", ">Run</button>\n        </fieldset>\n      </section>\n\n      <section>\n\n        Inspired by\n        <a href=\"//web.archive.org/web/20151003181050/http://codepen.io/DonKarlssonSan/full/BopXpq/\">2015-10 codepen by DonKarlssonSan</a>\n        <br>\n        <br>\n\n        Other resources:\n        <ul>\n          <li><a href\"https://roguelike.club/event2020.html\">Roguecel 2020 talk by Herbert Wolverson</a> demonstrated DLA among other techniques</li>\n          <li><a href=\"//www.roguebasin.com/index.php?title=Diffusion-limited_aggregation\">Roguebasin DLA article</a></li>\n          <li><a href=\"//en.wikipedia.org/wiki/Diffusion-limited_aggregation\">WikiPedia on the wider topic</a></li>\n          <li><a href=\"//paulbourke.net/fractals/dla/\">Paul Boruke, reference from DonKarlssonSan</a></li>\n        </ul>\n\n      </section>\n    "]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -13785,7 +13825,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1>Diffusion Limited Aggregation</h1>\n\n        <p>\n          This implementation fires particles from the origin with random\n          initial radial heading. Each move proceeds by randomly perturbing the\n          heading up to the turning radius set below, and advancing forward\n          orthogonally along the greatest projected axis.\n        </p>\n\n        <fieldset>\n          <legend>Settings</legend>\n\n          <input id=\"dla-turnDenom\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-turnDenom\">Turning Radius: Math.PI/", "</label>\n          <br>\n\n          <input id=\"dla-rate\" type=\"range\" min=\"1\" max=\"100\" value=\"", "\" @change=", ">\n          <label for=\"dla-rate\">Particle Move Rate: every ", "ms</label>\n          <br>\n\n          <button @click=", ">Run</button>\n        </fieldset>\n      </section>\n\n      <section>\n\n        Inspired by\n        <a href=\"//web.archive.org/web/20151003181050/http://codepen.io/DonKarlssonSan/full/BopXpq/\">2015-10 codepen by DonKarlssonSan</a>\n        <br>\n        <br>\n\n        Other resources:\n        <ul>\n          <li><a href\"https://roguelike.club/event2020.html\">Roguecel 2020 talk by Herbert Wolverson</a> demonstrated DLA among other techniques</li>\n          <li><a href=\"//www.roguebasin.com/index.php?title=Diffusion-limited_aggregation\">Roguebasin DLA article</a></li>\n          <li><a href=\"//en.wikipedia.org/wiki/Diffusion-limited_aggregation\">WikiPedia on the wider topic</a></li>\n          <li><a href=\"//paulbourke.net/fractals/dla/\">Paul Boruke, reference from DonKarlssonSan</a></li>\n        </ul>\n\n      </section>\n    "]);
+  var data = _taggedTemplateLiteral(["player@", ",", "+", "+", " view@", ",", "+", "+", ""]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -13795,7 +13835,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["player@", ",", "+", "+", " view@", ",", "+", "+", ""]);
+  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1 align=\"center\">Welcome traveler</h1>\n        <p>\n          Boop a color, get a color!\n        </p>\n        <p>\n          This is the first and simplest example of jspit's <code>TileGrid</code>.\n        </p>\n        <p>\n          <button @click=", ">Ok!</button>\n        </p>\n      </section>\n    "]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -13805,7 +13845,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n      <section>\n        <h1 align=\"center\">Welcome traveler</h1>\n        <p>\n          Boop a color, get a color!\n        </p>\n        <p>\n          This is the first and simplest example of jspit's <code>TileGrid</code>.\n        </p>\n        <p>\n          <button @click=", ">Ok!</button>\n        </p>\n      </section>\n    "]);
+  var data = _taggedTemplateLiteral(["// mouse-over a tile to inspect it"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -13825,7 +13865,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["// mouse-over a tile to inspect it"]);
+  var data = _taggedTemplateLiteral(["@", ",", " ", ""]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -13835,7 +13875,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["@", ",", " ", ""]);
+  var data = _taggedTemplateLiteral(["\n      <section>\n        <p>\n          Welcome to the Pits of JavaScript, where we experiment our way towards\n          a \"game\", spinning demos and other pieces of interest as the spirit\n          moves...\n        </p>\n\n        <p>\n          To get started, just pick a demo from the header dropdown.\n        </p>\n      </section>\n\n      <section align=\"center\">\n        <a href=\"//github.com/jcorbin/jspit\">Github</a>\n        |\n        <a href=\"//github.com/jcorbin/jspit/blob/main/stream.md\">Dev log</a>\n      </section>\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -13845,7 +13885,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n      <section>\n        <p>\n          Welcome to the Pits of JavaScript, where we experiment our way towards\n          a \"game\", spinning demos and other pieces of interest as the spirit\n          moves...\n        </p>\n\n        <p>\n          To get started, just pick a demo from the header dropdown.\n        </p>\n      </section>\n\n      <section align=\"center\">\n        <a href=\"//github.com/jcorbin/jspit\">Github</a>\n        |\n        <a href=\"//github.com/jcorbin/jspit/blob/main/stream.md\">Dev log</a>\n      </section>\n    "]);
+  var data = _taggedTemplateLiteral(["\n      <button @click=", " title=\"Reboot Scenario <Escape>\">Reboot</button>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13857,14 +13897,6 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -13886,7 +13918,15 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -13930,6 +13970,14 @@ var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, gene
   });
 };
 
+var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (receiver, privateMap) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+};
+
 var __classPrivateFieldSet = this && this.__classPrivateFieldSet || function (receiver, privateMap, value) {
   if (!privateMap.has(receiver)) {
     throw new TypeError("attempted to set private field on non-instance");
@@ -13939,15 +13987,7 @@ var __classPrivateFieldSet = this && this.__classPrivateFieldSet || function (re
   return value;
 };
 
-var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (receiver, privateMap) {
-  if (!privateMap.has(receiver)) {
-    throw new TypeError("attempted to get private field on non-instance");
-  }
-
-  return privateMap.get(receiver);
-};
-
-var _origGridClassname, _boundMouseMoved, _inspectingIDs, _viewer;
+var _fore, _back, _origGridClassname, _boundMouseMoved, _inspectingIDs, _viewer;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -13957,12 +13997,115 @@ require("core-js/stable");
 
 require("regenerator-runtime/runtime");
 
-var lit_html_1 = require("lit-html");
+var lit_html_1 = require("lit-html"); // mortonSpread inserts a 0 bit after each of 26 the low bits of x, masking
+// away any higher bits; this is the best we can do in JavaScript since integer
+// precision maxes out at 53 bits.
+
+
+function mortonSpread1(x) {
+  x = x & 0x00000002ffffff; // x = ---- ----  ---- ----  ---- ----  ---- --98  7654 3210  fedc ba98  7654 3210
+
+  x = (x ^ x << 8) & 0x0200ff00ff00ff; // x = ---- --98  ---- ----  7654 3210  ---- ----  fedc ba98  ---- ----  7654 3210
+
+  x = (x ^ x << 4) & 0x020f0f0f0f0f0f; // x = ---- ----  ---- 7654  ---- 3210  ---- fedc  ---- ba98  ---- 7654  ---- 3210
+
+  x = (x ^ x << 2) & 0x02333333333333; // x = ---- --98  --76 --54  --32 --10  --fe --dc  --ba --98  --76 --54  --32 --10
+
+  x = (x ^ x << 1) & 0x05555555555555; // x = ---- -9-8  -6-6 -5-4  -3-2 -1-0  -f-e -d-c  -b-a -9-8  -7-6 -5-4  -3-2 -1-0
+
+  return x;
+} // mortonKey returns the Z-order curve index for a Point, aka its "Morton code"
+// https://en.wikipedia.org/wiki/Z-order_curve
+
+
+function mortonKey(_ref) {
+  var x = _ref.x,
+      y = _ref.y;
+  return mortonSpread1(x) | mortonSpread1(y) << 1;
+}
+
+var TileMortonIndex = /*#__PURE__*/function () {
+  function TileMortonIndex() {
+    _classCallCheck(this, TileMortonIndex);
+
+    _fore.set(this, new Map());
+
+    _back.set(this, new Map());
+  }
+
+  _createClass(TileMortonIndex, [{
+    key: "update",
+    value: function update(ids, pos) {
+      var _a;
+
+      var _iterator = _createForOfIteratorHelper(ids.entries()),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _step$value = _slicedToArray(_step.value, 2),
+              i = _step$value[0],
+              id = _step$value[1];
+
+          var pt = pos[i];
+          var key = mortonKey(pt);
+
+          var prior = __classPrivateFieldGet(this, _back).get(id);
+
+          if (prior !== undefined) (_a = __classPrivateFieldGet(this, _fore).get(prior)) === null || _a === void 0 ? void 0 : _a.delete(id);
+
+          var at = __classPrivateFieldGet(this, _fore).get(key);
+
+          if (at) at.add(id);else __classPrivateFieldGet(this, _fore).set(key, new Set([id]));
+
+          __classPrivateFieldGet(this, _back).set(id, key);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
+  }, {
+    key: "tilesAt",
+    value: function tilesAt(at) {
+      return __classPrivateFieldGet(this, _fore).get(mortonKey(at));
+    }
+  }]);
+
+  return TileMortonIndex;
+}();
+
+_fore = new WeakMap(), _back = new WeakMap(); // NOTE DOM-based spatial index is possible for visible elements:
+// const off = {x: 0, y: 0};
+// for (let el = this.el as Node|null; el; el = el.parentNode) {
+//   if (el.nodeType !== el.ELEMENT_NODE) break;
+//   const {offsetLeft, offsetTop, scrollLeft, scrollTop} = el as HTMLElement;
+//   off.x += offsetLeft, off.y += offsetTop;
+//   off.x -= scrollLeft, off.y -= scrollTop;
+// }
+// const view = this.viewOffset;
+// const pt = {
+//   x: at.x - view.x,
+//   y: at.y - view.y,
+// };
+// const tileSize = this.tileSize;
+// const vp = {
+//   x: (pt.x + 0.5) * tileSize.x + off.x,
+//   y: (pt.y + 0.5) * tileSize.y + off.y,
+// };
+// let tiles = document
+//   .elementsFromPoint(vp.x, vp.y)
+//   .filter(el => el.classList.contains('tile')) as HTMLElement[];
+// if (tag.length) tiles = tiles
+//   .filter(el => tag.every(t => el.classList.contains(t)));
+// return tiles;
 
 var TileGrid = /*#__PURE__*/function () {
   function TileGrid(el) {
     _classCallCheck(this, TileGrid);
 
+    this.spatialIndex = new TileMortonIndex();
     this.el = el; // TODO handle resize events
   }
 
@@ -13996,18 +14139,18 @@ var TileGrid = /*#__PURE__*/function () {
       if (spec.tag) {
         tile.className = 'tile';
         if (typeof spec.tag === 'string') tile.classList.add(spec.tag);else if (Array.isArray(spec.tag)) {
-          var _iterator = _createForOfIteratorHelper(spec.tag),
-              _step;
+          var _iterator2 = _createForOfIteratorHelper(spec.tag),
+              _step2;
 
           try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var tag = _step.value;
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var tag = _step2.value;
               tile.classList.add(tag);
             }
           } catch (err) {
-            _iterator.e(err);
+            _iterator2.e(err);
           } finally {
-            _iterator.f();
+            _iterator2.f();
           }
         }
       } else if (!tile.className) tile.className = 'tile';
@@ -14026,21 +14169,27 @@ var TileGrid = /*#__PURE__*/function () {
     }
   }, {
     key: "queryTiles",
-    value: function queryTiles(selector) {
+    value: function queryTiles() {
       var res = [];
 
-      var _iterator2 = _createForOfIteratorHelper(this.el.querySelectorAll(".tile".concat(selector || ''))),
-          _step2;
+      for (var _len = arguments.length, tag = new Array(_len), _key = 0; _key < _len; _key++) {
+        tag[_key] = arguments[_key];
+      }
+
+      var _iterator3 = _createForOfIteratorHelper(this.el.querySelectorAll(".tile".concat(tag.map(function (t) {
+        return ".".concat(t);
+      }).join('')))),
+          _step3;
 
       try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          var el = _step2.value;
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var el = _step3.value;
           res.push(el);
         }
       } catch (err) {
-        _iterator2.e(err);
+        _iterator3.e(err);
       } finally {
-        _iterator2.f();
+        _iterator3.f();
       }
 
       return res;
@@ -14069,20 +14218,17 @@ var TileGrid = /*#__PURE__*/function () {
     }
   }, {
     key: "moveTileTo",
-    value: function moveTileTo(elOrID, _ref) {
-      var x = _ref.x,
-          y = _ref.y;
+    value: function moveTileTo(elOrID, pt) {
       var tile = this.getTile(elOrID);
       if (!tile) return {
         x: NaN,
         y: NaN
       };
-      tile.style.setProperty('--x', x.toString());
-      tile.style.setProperty('--y', y.toString());
-      return {
-        x: x,
-        y: y
-      };
+      tile.style.setProperty('--x', pt.x.toString());
+      tile.style.setProperty('--y', pt.y.toString()); // TODO decouple/batch these with a mutation observer?
+
+      this.spatialIndex.update([tile.id], [pt]);
+      return pt;
     }
   }, {
     key: "moveTileBy",
@@ -14108,24 +14254,34 @@ var TileGrid = /*#__PURE__*/function () {
   }, {
     key: "tilesAt",
     value: function tilesAt(at) {
-      var tiles = []; // TODO :shrug: spatial index
-
-      var _iterator3 = _createForOfIteratorHelper(this.el.querySelectorAll(".tile".concat(selector || ''))),
-          _step3;
-
-      try {
-        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-          var other = _step3.value;
-          var el = other;
-          var pos = this.getTilePosition(el);
-          if (pos.x === at.x && pos.y === at.y) tiles.push(el);
-        }
-      } catch (err) {
-        _iterator3.e(err);
-      } finally {
-        _iterator3.f();
+      for (var _len2 = arguments.length, tag = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        tag[_key2 - 1] = arguments[_key2];
       }
 
+      var tiles = [];
+      var ids = this.spatialIndex.tilesAt(at);
+      if (!ids) return tiles;
+
+      var _iterator4 = _createForOfIteratorHelper(ids),
+          _step4;
+
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var id = _step4.value;
+          var el = this.el.querySelector("#".concat(id));
+          if (el) tiles.push(el);
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
+      }
+
+      if (tag.length) tiles = tiles.filter(function (el) {
+        return tag.every(function (t) {
+          return el.classList.contains(t);
+        });
+      });
       return tiles;
     }
   }, {
@@ -14196,22 +14352,23 @@ var TileGrid = /*#__PURE__*/function () {
     key: "tileSize",
     get: function get() {
       // TODO use an invisible ghost tile? cache?
-      var _iterator4 = _createForOfIteratorHelper(this.el.querySelectorAll('.tile')),
-          _step4;
+      var _iterator5 = _createForOfIteratorHelper(this.el.querySelectorAll('.tile')),
+          _step5;
 
       try {
-        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-          var tile = _step4.value;
-          var h = tile.clientHeight;
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var tile = _step5.value;
+          var x = tile.clientWidth;
+          var y = tile.clientHeight;
           return {
-            x: h,
-            y: h
+            x: x,
+            y: y
           };
         }
       } catch (err) {
-        _iterator4.e(err);
+        _iterator5.e(err);
       } finally {
-        _iterator4.f();
+        _iterator5.f();
       }
 
       return {
@@ -14317,8 +14474,8 @@ var KeyMap = /*#__PURE__*/function (_Map) {
     value: function consumePresses() {
       var presses = [];
 
-      for (var _i = 0, _Array$from = Array.from(this.entries()); _i < _Array$from.length; _i++) {
-        var _Array$from$_i = _slicedToArray(_Array$from[_i], 2),
+      for (var _i2 = 0, _Array$from = Array.from(this.entries()); _i2 < _Array$from.length; _i2++) {
+        var _Array$from$_i = _slicedToArray(_Array$from[_i2], 2),
             name = _Array$from$_i[0],
             count = _Array$from$_i[1];
 
@@ -14402,8 +14559,13 @@ function coalesceKeys(presses) {
 
 var Sim = /*#__PURE__*/function () {
   function Sim(modal, view, head, foot, cont) {
+    var _this2 = this;
+
     _classCallCheck(this, Sim);
 
+    var _a;
+
+    this.cons = null;
     this.scen = null;
 
     _origGridClassname.set(this, void 0);
@@ -14427,23 +14589,38 @@ var Sim = /*#__PURE__*/function () {
     this.keys.register(this.cont || this.grid.el);
 
     __classPrivateFieldSet(this, _origGridClassname, this.grid.el.className);
+
+    (_a = this.addCtl(lit_html_1.html(_templateObject(), function () {
+      return _this2.reboot();
+    }))) === null || _a === void 0 ? void 0 : _a.classList.remove('scen');
   }
 
   _createClass(Sim, [{
     key: "filterKeys",
     value: function filterKeys(event) {
+      if (event.key === 'Escape') {
+        this.reboot();
+        return false;
+      }
+
       if (this.modal.style.display !== 'none') return false;
       return !event.altKey && !event.ctrlKey && !event.metaKey;
     }
   }, {
     key: "change",
-    value: function change(scen) {
+    value: function change(cons) {
+      this.cons = cons;
+      this.reboot();
+    }
+  }, {
+    key: "reboot",
+    value: function reboot() {
       this.grid.clear();
-      this.scen = scen;
-      this.setStatus(null);
       this.grid.el.className = __classPrivateFieldGet(this, _origGridClassname);
       this.clearCtls();
+      this.setStatus(null);
       this.modal.style.display = 'none';
+      this.scen = this.cons && new this.cons();
       if (__classPrivateFieldGet(this, _boundMouseMoved)) this.grid.el.removeEventListener('mousemove', __classPrivateFieldGet(this, _boundMouseMoved));
 
       if (this.scen) {
@@ -14482,18 +14659,18 @@ var Sim = /*#__PURE__*/function () {
     value: function clearCtls() {
       if (!this.head) return;
 
-      var _iterator5 = _createForOfIteratorHelper(this.head.querySelectorAll('.ctl.scen')),
-          _step5;
+      var _iterator6 = _createForOfIteratorHelper(this.head.querySelectorAll('.ctl.scen')),
+          _step6;
 
       try {
-        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-          var el = _step5.value;
+        for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+          var el = _step6.value;
           if (el.parentNode) el.parentNode.removeChild(el);
         }
       } catch (err) {
-        _iterator5.e(err);
+        _iterator6.e(err);
       } finally {
-        _iterator5.f();
+        _iterator6.f();
       }
     }
   }, {
@@ -14533,7 +14710,7 @@ var Sim = /*#__PURE__*/function () {
     value: function consumeInput() {
       var presses = this.keys.consumePresses();
       if (!this.scen) return;
-      var movers = this.grid.queryTiles('.keyMove');
+      var movers = this.grid.queryTiles('keyMove');
       if (!movers.length) return;
       if (movers.length > 1) throw new Error("ambiguous ".concat(movers.length, "-mover situation"));
       var actor = movers[0];
@@ -14576,7 +14753,7 @@ var Hello = /*#__PURE__*/function () {
   _createClass(Hello, [{
     key: "setup",
     value: function setup(ctx) {
-      ctx.showModal(lit_html_1.html(_templateObject()));
+      ctx.showModal(lit_html_1.html(_templateObject2()));
     }
   }]);
 
@@ -14595,17 +14772,17 @@ var ColorBoop = /*#__PURE__*/function () {
   _createClass(ColorBoop, [{
     key: "inspect",
     value: function inspect(_ctx, pos, tiles) {
-      if (__classPrivateFieldGet(this, _viewer)) lit_html_1.render(tiles.length ? lit_html_1.html(_templateObject2(), pos.x, pos.y, tiles.map(function (_ref11) {
+      if (__classPrivateFieldGet(this, _viewer)) lit_html_1.render(tiles.length ? lit_html_1.html(_templateObject3(), pos.x, pos.y, tiles.map(function (_ref11) {
         var id = _ref11.id;
         return id;
-      })) : lit_html_1.html(_templateObject3()), __classPrivateFieldGet(this, _viewer));
+      })) : lit_html_1.html(_templateObject4()), __classPrivateFieldGet(this, _viewer));
     }
   }, {
     key: "setup",
     value: function setup(ctx) {
-      __classPrivateFieldSet(this, _viewer, ctx.addCtl(lit_html_1.html(_templateObject4())));
+      __classPrivateFieldSet(this, _viewer, ctx.addCtl(lit_html_1.html(_templateObject5())));
 
-      ctx.showModal(lit_html_1.html(_templateObject5(), function () {
+      ctx.showModal(lit_html_1.html(_templateObject6(), function () {
         return ctx.showModal(null);
       }));
       ctx.grid.createTile('at', {
@@ -14648,12 +14825,12 @@ var ColorBoop = /*#__PURE__*/function () {
       var hits = ctx.grid.tilesAt(action.targ, 'solid');
 
       if (!(action.ok = !hits.length)) {
-        var _iterator6 = _createForOfIteratorHelper(hits),
-            _step6;
+        var _iterator7 = _createForOfIteratorHelper(hits),
+            _step7;
 
         try {
-          for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-            var hit = _step6.value;
+          for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+            var hit = _step7.value;
 
             if (hit.classList.contains('swatch')) {
               var spec = {};
@@ -14662,9 +14839,9 @@ var ColorBoop = /*#__PURE__*/function () {
             }
           }
         } catch (err) {
-          _iterator6.e(err);
+          _iterator7.e(err);
         } finally {
-          _iterator6.f();
+          _iterator7.f();
         }
       }
 
@@ -14685,7 +14862,7 @@ var ColorBoop = /*#__PURE__*/function () {
           vy = _ctx$grid$viewport.y,
           vw = _ctx$grid$viewport.width,
           vh = _ctx$grid$viewport.height;
-      ctx.setStatus(lit_html_1.html(_templateObject6(), x, y, w, h, vx, vy, Math.floor(vw), Math.floor(vh)));
+      ctx.setStatus(lit_html_1.html(_templateObject7(), x, y, w, h, vx, vy, Math.floor(vw), Math.floor(vh)));
     }
   }]);
 
@@ -14700,9 +14877,12 @@ var DLA = /*#__PURE__*/function () {
 
     this.particleID = 0;
     this.rate = 5;
-    this.turnDenom = 8;
+    this.turnLeft = 0.5;
+    this.turnRight = 0.5;
     this.stepLimit = 50;
     this.elapsed = 0;
+    this.pi = 0;
+    this.digSeq = new Map();
   }
 
   _createClass(DLA, [{
@@ -14718,47 +14898,98 @@ var DLA = /*#__PURE__*/function () {
         x: 0,
         y: 0
       });
-      this.updateCtl(ctx);
+      this.doSettings(ctx);
     }
   }, {
-    key: "updateCtl",
-    value: function updateCtl(ctx) {
-      ctx.showModal(lit_html_1.html(_templateObject7(), this.turnDenom, this.turnDenomChanged.bind(this, ctx), this.turnDenom, this.rate, this.rateChanged.bind(this, ctx), this.rate, function () {
-        return ctx.showModal(null);
+    key: "doSettings",
+    value: function doSettings(ctx) {
+      var _this3 = this;
+
+      ctx.showModal(lit_html_1.html(_templateObject8(), this.turnLeft, function (ev) {
+        var value = ev.target.value;
+        _this3.turnLeft = parseFloat(value);
+
+        _this3.doSettings(ctx);
+      }, this.turnLeft, this.turnRight, function (ev) {
+        var value = ev.target.value;
+        _this3.turnRight = parseFloat(value);
+
+        _this3.doSettings(ctx);
+      }, this.turnRight, this.rate, function (ev) {
+        var value = ev.target.value;
+        _this3.rate = parseFloat(value);
+
+        _this3.doSettings(ctx);
+      }, this.rate, function () {
+        ctx.showModal(null);
+        var drop = ctx.addCtl(lit_html_1.html(_templateObject9(), function () {
+          var _a;
+
+          (_a = drop === null || drop === void 0 ? void 0 : drop.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(drop);
+
+          _this3.dropPlayer(ctx);
+
+          _this3.rate = 100;
+          doRate();
+        }));
+        var rate = ctx.addCtl(lit_html_1.html(_templateObject10()));
+
+        var doRate = function doRate() {
+          if (!rate) return;
+          lit_html_1.render(lit_html_1.html(_templateObject11(), _this3.rate, function (ev) {
+            var value = ev.target.value;
+            _this3.rate = parseFloat(value);
+            doRate();
+          }, _this3.rate), rate);
+        };
+
+        doRate();
       }));
     }
   }, {
-    key: "turnDenomChanged",
-    value: function turnDenomChanged(ctx, ev) {
-      var value = ev.target.value;
-      this.turnDenom = parseFloat(value);
-      this.updateCtl(ctx);
-    }
-  }, {
-    key: "rateChanged",
-    value: function rateChanged(ctx, ev) {
-      var value = ev.target.value;
-      this.rate = parseFloat(value);
-      this.updateCtl(ctx);
+    key: "dropPlayer",
+    value: function dropPlayer(ctx) {
+      ctx.grid.createTile('at', {
+        text: '@',
+        tag: ['solid', 'mind', 'keyMove'],
+        pos: {
+          x: 0,
+          y: 0
+        }
+      });
     }
   }, {
     key: "update",
     value: function update(ctx, dt) {
+      var _this4 = this;
+
       this.elapsed += dt;
       var n = Math.min(this.stepLimit, Math.floor(this.elapsed / this.rate));
       if (!n) return;
       this.elapsed -= n * this.rate;
+      var ps = ctx.grid.queryTiles('particle', 'live');
 
-      for (var i = 0; i < n; ++i) {
-        var p = ctx.grid.getTile("particle-".concat(this.particleID));
+      var spawn = function spawn() {
+        var p = ctx.grid.createTile("particle-".concat(++_this4.particleID), {
+          tag: ['particle', 'live'],
+          fg: 'var(--green)',
+          text: '*'
+        });
+        ctx.setStatus(lit_html_1.html(_templateObject12(), _this4.particleID));
+        ps.push(p);
+      };
 
-        if (!p || !p.classList.contains('live')) {
-          ctx.grid.createTile("particle-".concat(++this.particleID), {
-            tag: ['particle', 'live'],
-            fg: 'var(--green)',
-            text: '*'
-          });
-          ctx.setStatus(lit_html_1.html(_templateObject8(), this.particleID));
+      for (var i = 0; i < n; ++i, ++this.pi) {
+        if (!ps.length) {
+          spawn();
+          continue;
+        }
+
+        this.pi %= ps.length;
+        var p = ps[this.pi];
+
+        if (!p.classList.contains('live')) {
+          ps.splice(this.pi, 1);
           continue;
         }
 
@@ -14767,7 +14998,7 @@ var DLA = /*#__PURE__*/function () {
         if (!heading) {
           heading = Math.random() * 2 * Math.PI;
         } else {
-          heading += Math.random() * Math.PI / this.turnDenom;
+          heading += Math.PI * Math.random() * (this.turnLeft + this.turnRight) - this.turnLeft;
           heading %= 2 * Math.PI;
         }
 
@@ -14791,12 +15022,38 @@ var DLA = /*#__PURE__*/function () {
             text: '.',
             pos: pos
           });
+          ps.splice(this.pi, 1);
           continue;
         }
 
         ctx.grid.moveTileTo(p, pos);
         ctx.grid.nudgeViewTo(pos, 0.2);
       }
+    }
+  }, {
+    key: "act",
+    value: function act(ctx, action) {
+      if (!action.actor.classList.contains('solid')) return action;
+      var hits = ctx.grid.tilesAt(action.targ);
+
+      if (!hits.length) {
+        var aid = action.actor.id;
+        var did = (this.digSeq.get(aid) || 0) + 1;
+        this.digSeq.set(aid, did);
+        ctx.grid.createTile("particle-placed-".concat(aid, "-").concat(did), {
+          tag: ['particle'],
+          bg: 'var(--black)',
+          fg: 'var(--orange)',
+          text: '.',
+          pos: action.targ
+        });
+      } else if (!hits.some(function (h) {
+        return h.classList.contains('particle');
+      })) {
+        action.ok = false;
+      }
+
+      return action;
     }
   }]);
 
@@ -14805,13 +15062,13 @@ var DLA = /*#__PURE__*/function () {
 
 var demos = [Hello, ColorBoop, DLA];
 
-function setupDemoSelector(boot, sel, change) {
-  var _iterator7 = _createForOfIteratorHelper(demos),
-      _step7;
+function setupDemoSelector(sel, change) {
+  var _iterator8 = _createForOfIteratorHelper(demos),
+      _step8;
 
   try {
-    for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-      var demo = _step7.value;
+    for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+      var demo = _step8.value;
       var opt = document.createElement('option');
       opt.value = demo.name;
       opt.innerText = demo.name; // TODO description?
@@ -14819,48 +15076,47 @@ function setupDemoSelector(boot, sel, change) {
       sel.appendChild(opt);
     }
   } catch (err) {
-    _iterator7.e(err);
+    _iterator8.e(err);
   } finally {
-    _iterator7.f();
+    _iterator8.f();
   }
 
   if (window.location.hash) sel.value = window.location.hash.slice(1);
 
   var changed = function changed() {
-    var demo = null;
+    var cons = null;
 
-    var _iterator8 = _createForOfIteratorHelper(demos),
-        _step8;
+    var _iterator9 = _createForOfIteratorHelper(demos),
+        _step9;
 
     try {
-      for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
-        var d = _step8.value;
+      for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+        var d = _step9.value;
 
         if (d.name === sel.value) {
-          demo = new d();
+          cons = d;
           break;
         }
       }
     } catch (err) {
-      _iterator8.e(err);
+      _iterator9.e(err);
     } finally {
-      _iterator8.f();
+      _iterator9.f();
     }
 
-    if (!demo) sel.value = 'hello';
+    if (!cons) sel.value = 'hello';
     window.location.hash = "#".concat(sel.value);
-    change(demo || new Hello());
+    change(cons || Hello);
     sel.blur();
   };
 
   sel.addEventListener('change', changed);
-  boot.addEventListener('click', changed);
   changed();
 }
 
 function main() {
   return __awaiter(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var main, modal, demoSel, demoBoot, mainGrid, head, foot, running, sim, last, dt, next;
+    var main, modal, demoSel, mainGrid, head, foot, running, sim, last, dt, next;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -14899,73 +15155,63 @@ function main() {
             throw new Error('no <select#demo> element');
 
           case 11:
-            demoBoot = document.querySelector('#reboot');
-
-            if (demoBoot) {
-              _context.next = 14;
-              break;
-            }
-
-            throw new Error('no #reboot element');
-
-          case 14:
             mainGrid = main.querySelector('.grid');
 
             if (mainGrid) {
-              _context.next = 17;
+              _context.next = 14;
               break;
             }
 
             throw new Error('no <main> .grid element');
 
-          case 17:
+          case 14:
             head = document.querySelector('header');
 
             if (head) {
-              _context.next = 20;
+              _context.next = 17;
               break;
             }
 
             throw new Error('no <header> element');
 
-          case 20:
+          case 17:
             foot = document.querySelector('footer');
 
             if (foot) {
-              _context.next = 23;
+              _context.next = 20;
               break;
             }
 
             throw new Error('no <footer> element');
 
-          case 23:
+          case 20:
             running = true;
             sim = new Sim(modal, mainGrid, head, foot, document.body);
-            setupDemoSelector(demoBoot, demoSel, sim.change.bind(sim));
-            _context.next = 28;
+            setupDemoSelector(demoSel, sim.change.bind(sim));
+            _context.next = 25;
             return nextFrame();
 
-          case 28:
+          case 25:
             last = _context.sent;
             dt = 0;
 
-          case 30:
+          case 27:
             if (!running) {
-              _context.next = 38;
+              _context.next = 35;
               break;
             }
 
             sim.update(dt);
-            _context.next = 34;
+            _context.next = 31;
             return nextFrame();
 
-          case 34:
+          case 31:
             next = _context.sent;
             dt = next - last, last = next;
-            _context.next = 30;
+            _context.next = 27;
             break;
 
-          case 38:
+          case 35:
           case "end":
             return _context.stop();
         }
@@ -14976,4 +15222,4 @@ function main() {
 
 main(); // vim:set ts=2 sw=2 expandtab:
 },{"core-js/stable":"UJhP","regenerator-runtime/runtime":"KA2S","lit-html":"KMqM"}]},{},["QCba"], null)
-//# sourceMappingURL=/jspit/jspit.53e7199d.js.map
+//# sourceMappingURL=/jspit/jspit.0d2d7858.js.map
