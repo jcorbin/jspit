@@ -16,9 +16,9 @@ import{html as h,render as u}from"./web_modules/lit-html.js";function m(e){retur
       </section>
 
       <section align="center">
-        <a href="//github.com/jcorbin/jspit">Github</a>
+        <a href="//github.com/borkshop/js/tree/main/packages/jspit">Github</a>
         |
-        <a href="//github.com/jcorbin/jspit/blob/main/stream.md">Dev log</a>
+        <a href="//github.com/borkshop/js/blob/main/packages/jspit/stream.md">Dev log</a>
       </section>
     `)}}g.demoName="Hello",g.demoTitle="Welcome screen";class p{constructor(){this.colors=["black","darker-grey","dark-grey","grey","light-grey","lighter-grey","white","dark-white","blue","bright-purple","cyan","dark-orange","dark-sea-green","green","light-cyan","magenta","orange","purple","red","red-orange","yellow","yellow-orange"]}#e;inspect(e,t,i){this.#e&&u(i.length?h`@${t.x},${t.y} ${i.map(({id:s})=>s)}`:h`// mouse-over a tile to inspect it`,this.#e)}setup(e){this.#e=e.addCtl(h`// mouse-over a tile to inspect it`),e.showModal(h`
       <section>
