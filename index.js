@@ -274,20 +274,22 @@ function make(tagName, className) {
   return el;
 }
 class Sim {
-  constructor(cons, el, options) {
+  constructor(options) {
     this.inputRate = 100;
     this.nudgeBy = 0.2;
     this.running = false;
     this.lastInput = 0;
-    this.head = options?.head || el.querySelector("header") || el.appendChild(make("header"));
-    this.modal = options?.modal || el.querySelector(".modal") || el.appendChild(make("aside", "modal"));
-    this.grid = new TileGrid(options?.grid || el.querySelector(".grid") || el.appendChild(make("div", "grid")));
-    this.foot = options?.foot || el.querySelector("footer") || el.appendChild(make("footer"));
+    this.el = options.el;
+    this.head = options?.head || this.el.querySelector("header") || this.el.appendChild(make("header"));
+    this.modal = options?.modal || this.el.querySelector(".modal") || this.el.appendChild(make("aside", "modal"));
+    this.grid = new TileGrid(options?.grid || this.el.querySelector(".grid") || this.el.appendChild(make("div", "grid")));
+    this.foot = options?.foot || this.el.querySelector("footer") || this.el.appendChild(make("footer"));
+    this.keysOn = options.keysOn || this.grid.el;
     this.keys = new KeyMap();
     this.keys.filter = this.filterKeys.bind(this);
-    this.keys.register(options?.keysOn || this.grid.el);
+    this.keys.register(this.keysOn);
     this.#origGridClassname = this.grid.el.className;
-    this.cons = cons;
+    this.cons = options.cons;
     this.scen = new this.cons();
     this.reset();
     this.init();
@@ -644,24 +646,9 @@ class DLA {
         drop?.parentNode?.removeChild(drop);
         this.dropPlayer(ctx);
         this.rate = 100;
-        doRate();
       }}>Drop Player</button>
           `);
-      const rate = ctx.addCtl(html``);
-      const doRate = () => {
-        if (!rate)
-          return;
-        render(html`
-              <input id="dla-rate" type="range" min="1" max="100" value="${this.rate}" @change=${(ev) => {
-          const {value} = ev.target;
-          this.rate = parseFloat(value);
-          doRate();
-        }}>
-              <label for="dla-rate">Particle Move Rate: every ${this.rate}ms</label>
-            `, rate);
-      };
-      doRate();
-      this.#ctls.push(drop, rate);
+      this.#ctls.push(drop);
     }}>Run</button>
       </section>
 
@@ -687,6 +674,7 @@ class DLA {
     ctx.grid.createTile("at", {
       text: "@",
       tag: ["solid", "mind", "keyMove"],
+      fg: "var(--orange)",
       pos: {x: 0, y: 0}
     });
   }
@@ -775,51 +763,79 @@ class DLA {
 }
 DLA.demoName = "DLA";
 DLA.demoTitle = "Diffusion Limited Aggregation";
-const demos = [
-  Hello,
-  ColorBoop,
-  DLA
-];
-function demoNamed(name) {
-  for (const d of demos)
-    if (d.name === name)
-      return d;
-  return demos[0];
-}
-let sim;
-async function main() {
-  await once(window, "DOMContentLoaded");
-  const main2 = document.querySelector("main");
-  if (!main2)
-    throw new Error("no <main> element");
-  const head = document.querySelector("header") || document.body.insertBefore(make("header"), main2);
-  const demoOption = ({demoName, demoTitle}) => html`
-    <option value="${demoName}" title="${demoTitle}">${demoName}</option>`;
-  render(html`
-    <select id="demo" title="Simulation Scenario" @change=${(ev) => {
-    const sel2 = ev.target;
-    change(sel2.value);
-    sel2.blur();
-  }}>${demos.map(demoOption)}</select>
-  `, head.appendChild(make("div", "ctl right")));
-  render(html`
-    <button @click=${() => sim?.reboot()} title="Reboot Scenario <Escape>">Reboot</button>
-  `, head.appendChild(make("div", "ctl right")));
-  const sel = document.getElementById("demo");
-  const change = (name) => {
-    if (sim)
-      sim.halt();
-    const cons = demoNamed(name);
+export class DemoApp {
+  constructor(options) {
+    this.demos = [
+      Hello,
+      ColorBoop,
+      DLA
+    ];
+    this.sim = null;
+    if (!options.main) {
+      this.main = make("main");
+      document.body.appendChild(this.main);
+    } else {
+      this.main = options.main;
+    }
+    if (!options.head) {
+      this.head = make("header");
+      this.main.parentNode?.insertBefore(this.head, this.main);
+    } else {
+      this.head = options.head;
+    }
+    if (!options.foot) {
+      this.foot = make("footer");
+      if (this.main.nextSibling) {
+        this.main.parentNode?.insertBefore(this.foot, this.main.nextSibling);
+      } else {
+        this.main.parentNode?.appendChild(this.foot);
+      }
+    } else {
+      this.foot = options.foot;
+    }
+    for (const ctl of this.head.querySelectorAll(".ctl.demo"))
+      this.head.removeChild(ctl);
+    const demoOption = ({demoName, demoTitle}) => html`
+      <option value="${demoName}" title="${demoTitle}">${demoName}</option>`;
+    render(html`
+      <select id="demo" title="Simulation Scenario" @change=${() => {
+      this.change(this.sel.value);
+      this.sel.blur();
+    }}>${this.demos.map(demoOption)}</select>
+    `, this.head.appendChild(make("div", "ctl demo right")));
+    render(html`
+      <button @click=${() => this.sim?.reboot()} title="Reboot Scenario <Escape>">Reboot</button>
+    `, this.head.appendChild(make("div", "ctl demo right")));
+    this.sel = this.head.querySelector("#demo");
+    this.change(readHashFrag() || "");
+  }
+  change(name) {
+    let cons = this.demos[0];
+    for (const d of this.demos)
+      if (d.name === name) {
+        cons = d;
+        break;
+      }
+    if (this.sim)
+      this.sim.halt();
     setHashFrag(cons.demoName);
-    sel.value = cons.demoName;
-    sim = new Sim(cons, main2, {
-      head,
-      modal: main2.querySelector("*.modal"),
-      foot: document.querySelector("footer"),
+    this.sel.value = cons.demoName;
+    this.sim = new Sim({
+      cons,
+      el: this.main,
+      head: this.head,
+      foot: this.foot,
       keysOn: document.body
     });
-    sim.run();
-  };
-  change(readHashFrag() || "");
+    this.sim.run();
+  }
+}
+async function main() {
+  await once(window, "DOMContentLoaded");
+  new DemoApp({
+    main: document.querySelector("main"),
+    head: document.querySelector("header"),
+    foot: document.querySelector("footer")
+  });
 }
 main();
