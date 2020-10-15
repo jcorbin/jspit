@@ -21,16 +21,20 @@ export class DLA {
     this.grid.centerViewOn({x: 0, y: 0});
   }
   static bindSettings(getInput) {
+    DLA.bindSetting("dropAfter", getInput("dropAfter"));
     DLA.bindSetting("initBase", getInput("initBase"));
     DLA.bindSetting("initArc", getInput("initArc"));
     DLA.bindSetting("turnLeft", getInput("turnLeft"));
     DLA.bindSetting("turnRight", getInput("turnRight"));
-    DLA.bindSetting("rate", getInput("rate"));
+    DLA.bindSetting("genRate", getInput("genRate"));
+    DLA.bindSetting("playRate", getInput("playRate"));
     DLA.bindSetting("stepLimit", getInput("stepLimit"));
     DLA.bindToggle("clampMoves", getInput("clampMoves"));
     DLA.bindToggle("trackClampDebt", getInput("trackClampDebt"));
   }
   static bindToggle(name, input2) {
+    if (input2)
+      DLA.inputs[name] = input2;
     const update = (enabled) => {
       setHashVar(name, enabled ? "true" : "false");
       DLA[name] = enabled;
@@ -43,6 +47,8 @@ export class DLA {
     }
   }
   static bindSetting(name, input2) {
+    if (input2)
+      DLA.inputs[name] = input2;
     const update = (value2) => {
       const given = value2 !== null;
       if (!given)
@@ -67,11 +73,15 @@ export class DLA {
     });
   }
   update(dt) {
+    const havePlayer = !!this.grid.queryTiles("keyMove").length;
+    if (DLA.dropAfter && this.particleID > DLA.dropAfter && !havePlayer)
+      this.dropPlayer();
+    const rate = havePlayer ? DLA.playRate : DLA.genRate;
     this.elapsed += dt;
-    const n = Math.min(DLA.stepLimit, Math.floor(this.elapsed / DLA.rate));
+    const n = Math.min(DLA.stepLimit, Math.floor(this.elapsed / rate));
     if (!n)
       return;
-    this.elapsed -= n * DLA.rate;
+    this.elapsed -= n * rate;
     let ps = this.grid.queryTiles("particle", "live");
     const spawn = () => {
       const heading = Math.PI * (DLA.initBase + (Math.random() - 0.5) * DLA.initArc);
@@ -196,7 +206,9 @@ DLA.demoName = "DLA";
 DLA.demoTitle = "Diffusion Limited Aggregation";
 DLA.inputRate = 100;
 DLA.nudgeBy = 0.2;
-DLA.rate = 5;
+DLA.dropAfter = 0;
+DLA.genRate = 1;
+DLA.playRate = 100;
 DLA.initBase = 0;
 DLA.initArc = 2;
 DLA.turnLeft = 0.5;
@@ -204,6 +216,7 @@ DLA.turnRight = 0.5;
 DLA.stepLimit = 50;
 DLA.clampMoves = false;
 DLA.trackClampDebt = true;
+DLA.inputs = {};
 export const bound = {};
 export const state = {};
 export function init(bind) {
@@ -235,7 +248,6 @@ export function init(bind) {
       if (bound.dropPlayer)
         bound.dropPlayer.disabled = true;
       state.world.dropPlayer();
-      DLA.rate = 100;
     }
   });
   DLA.bindSettings((name) => bound.menu?.querySelector(`input[name="${name}"]`) || null);
