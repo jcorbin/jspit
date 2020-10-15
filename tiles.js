@@ -7,7 +7,7 @@ function mortonSpread1(x) {
   return x;
 }
 function mortonKey({x, y}) {
-  return mortonSpread1(x) | mortonSpread1(y) << 1;
+  return mortonSpread1(Math.floor(x)) | mortonSpread1(Math.floor(y)) << 1;
 }
 class TileMortonIndex {
   constructor() {
@@ -81,6 +81,13 @@ export class TileGrid {
       tile.className = "tile";
     if (spec.pos)
       this.moveTileTo(tile, spec.pos);
+    if (spec.data) {
+      for (const name in tile.dataset)
+        if (!(name in spec.data))
+          delete tile.dataset[name];
+      for (const name in spec.data)
+        tile.dataset[name] = JSON.stringify(spec.data[name]);
+    }
     return tile;
   }
   getTile(elOrID) {
@@ -88,6 +95,26 @@ export class TileGrid {
       return this.el.querySelector("#" + this.tileID(elOrID));
     }
     return elOrID;
+  }
+  getTileData(elOrID, name) {
+    const tile = this.getTile(elOrID);
+    const sval = tile?.dataset[name];
+    if (!sval)
+      return null;
+    try {
+      return JSON.parse(sval);
+    } catch (e) {
+    }
+    return null;
+  }
+  setTileData(elOrID, name, value) {
+    const tile = this.getTile(elOrID);
+    if (!tile)
+      return;
+    if (value === null)
+      delete tile.dataset[name];
+    else
+      tile.dataset[name] = JSON.stringify(value);
   }
   queryTiles(...tag) {
     const res = [];
@@ -187,5 +214,23 @@ export class TileGrid {
       else
         return this.moveViewTo({x: vx, y: vy});
     }
+  }
+}
+export class TileInspector {
+  constructor(grid, handler) {
+    this.#inspectingIDs = "";
+    this.grid = grid;
+    this.handler = handler;
+    this.grid.el.addEventListener("mousemove", this.mouseMoved.bind(this));
+  }
+  #inspectingIDs;
+  mouseMoved(ev) {
+    const tiles = this.grid.tilesAtPoint(ev.clientX, ev.clientY);
+    const ids = tiles.map(({id}) => id).join(";");
+    if (this.#inspectingIDs === ids)
+      return;
+    this.#inspectingIDs = ids;
+    const pos = this.grid.getTilePosition(tiles[0]);
+    this.handler({pos, tiles});
   }
 }

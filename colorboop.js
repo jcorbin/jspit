@@ -1,4 +1,4 @@
-import {TileGrid} from "./tiles.js";
+import {TileGrid, TileInspector} from "./tiles.js";
 import {KeyMap, coalesceMoves} from "./input.js";
 import {everyFrame, schedule} from "./anim.js";
 import {show as showUI} from "./ui.js";
@@ -157,22 +157,4 @@ function playPause() {
         player@${x},${y}+${w}+${h} view@${vx},${vy}+${Math.floor(vw)}+${Math.floor(vh)}
       `, bound.foot);
     });
-}
-export class TileInspector {
-  constructor(grid, handler) {
-    this.#inspectingIDs = "";
-    this.grid = grid;
-    this.handler = handler;
-    this.grid.el.addEventListener("mousemove", this.mouseMoved.bind(this));
-  }
-  #inspectingIDs;
-  mouseMoved(ev) {
-    const tiles2 = this.grid.tilesAtPoint(ev.clientX, ev.clientY);
-    const ids = tiles2.map(({id}) => id).join(";");
-    if (this.#inspectingIDs === ids)
-      return;
-    this.#inspectingIDs = ids;
-    const pos = this.grid.getTilePosition(tiles2[0]);
-    this.handler({pos, tiles: tiles2});
-  }
 }

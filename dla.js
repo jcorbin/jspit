@@ -21,10 +21,26 @@ export class DLA {
     this.grid.centerViewOn({x: 0, y: 0});
   }
   static bindSettings(getInput) {
+    DLA.bindSetting("initBase", getInput("initBase"));
+    DLA.bindSetting("initArc", getInput("initArc"));
     DLA.bindSetting("turnLeft", getInput("turnLeft"));
     DLA.bindSetting("turnRight", getInput("turnRight"));
     DLA.bindSetting("rate", getInput("rate"));
     DLA.bindSetting("stepLimit", getInput("stepLimit"));
+    DLA.bindToggle("clampMoves", getInput("clampMoves"));
+    DLA.bindToggle("trackClampDebt", getInput("trackClampDebt"));
+  }
+  static bindToggle(name, input2) {
+    const update = (enabled) => {
+      setHashVar(name, enabled ? "true" : "false");
+      DLA[name] = enabled;
+      return enabled;
+    };
+    const value = update((readHashVar(name) || DLA[name].toString()).toLowerCase() === "true");
+    if (input2) {
+      input2.checked = value;
+      input2.addEventListener("change", () => update(input2.checked));
+    }
   }
   static bindSetting(name, input2) {
     const update = (value2) => {
@@ -58,10 +74,12 @@ export class DLA {
     this.elapsed -= n * DLA.rate;
     let ps = this.grid.queryTiles("particle", "live");
     const spawn = () => {
+      const heading = Math.PI * (DLA.initBase + (Math.random() - 0.5) * DLA.initArc);
       const p = this.grid.createTile(`particle-${++this.particleID}`, {
         tag: ["particle", "live"],
         fg: "var(--particle-live)",
-        text: "*"
+        text: "*",
+        data: {heading}
       });
       ps.push(p);
     };
@@ -72,33 +90,53 @@ export class DLA {
         continue;
       }
       for (const p of ps) {
-        let heading = p.dataset.heading && parseFloat(p.dataset.heading) || 0;
+        let heading = this.grid.getTileData(p, "heading");
+        if (typeof heading !== "number")
+          heading = 0;
         const adj = Math.random() * (DLA.turnLeft + DLA.turnRight) - DLA.turnLeft;
         heading += Math.PI * adj;
         heading %= 2 * Math.PI;
-        p.dataset.heading = heading.toString();
-        const dx = Math.cos(heading);
-        const dy = Math.sin(heading);
+        this.grid.setTileData(p, "heading", heading);
+        let dx = Math.cos(heading);
+        let dy = Math.sin(heading);
         const pos = this.grid.getTilePosition(p);
-        if (Math.abs(dy) > Math.abs(dx)) {
-          if (dy < 0)
-            pos.y--;
-          else
-            pos.y++;
+        if (DLA.clampMoves) {
+          if (DLA.trackClampDebt) {
+            const prior = this.grid.getTileData(p, "prior");
+            if (prior !== null && typeof prior === "object" && !Array.isArray(prior)) {
+              if (typeof prior.x === "number")
+                dx += prior.x;
+              if (typeof prior.y === "number")
+                dy += prior.y;
+            }
+          }
+          if (Math.abs(dy) > Math.abs(dx)) {
+            if (dy < 0)
+              pos.y++, dy++;
+            else
+              pos.y--, dy--;
+          } else {
+            if (dx < 0)
+              pos.x++, dx++;
+            else
+              pos.x--, dx--;
+          }
+          if (DLA.trackClampDebt)
+            this.grid.setTileData(p, "prior", {x: dx, y: dy});
         } else {
-          if (dx < 0)
-            pos.x--;
-          else
-            pos.x++;
+          pos.x += dx;
+          pos.y += dy;
         }
         if (!this.grid.tilesAt(pos, "particle").length) {
-          delete p.dataset.heading;
+          pos.x = Math.floor(pos.x);
+          pos.y = Math.floor(pos.y);
           this.grid.updateTile(p, {
             tag: ["particle"],
             bg: "var(--particle-bg)",
             fg: "var(--particle-dead)",
             text: ".",
-            pos
+            pos,
+            data: {}
           });
         } else {
           this.grid.moveTileTo(p, pos);
@@ -159,9 +197,13 @@ DLA.demoTitle = "Diffusion Limited Aggregation";
 DLA.inputRate = 100;
 DLA.nudgeBy = 0.2;
 DLA.rate = 5;
+DLA.initBase = 0;
+DLA.initArc = 2;
 DLA.turnLeft = 0.5;
 DLA.turnRight = 0.5;
 DLA.stepLimit = 50;
+DLA.clampMoves = false;
+DLA.trackClampDebt = true;
 export const bound = {};
 export const state = {};
 export function init(bind) {
