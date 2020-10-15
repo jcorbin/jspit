@@ -28,11 +28,14 @@ html {
   --main-bg: var(--darker-grey);
   --main-fg: var(--light-grey);
 
+  --grid-bg: transparent;
+
   --content-bg: var(--dark-grey);
   --content-fg: var(--dark-white);
 
   --ui-bg: var(--dark-grey);
   --ui-fg: var(--dark-white);
+  --ui-disabled: var(--lighter-grey);
 
   --ui-accent:       var(--grey);
   --ui-accent-focus: var(--light-grey);
@@ -105,19 +108,27 @@ main {
   right: 0;
 }
 
-aside.modal {
+aside {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  height: 100%;
-  width: 100%;
   overflow: auto;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
 }
 
+aside.modal {
+  left: 0;
+  width: 100%;
+}
+
+aside section               { margin-top: 1em; }
+aside section:first-of-type { margin-top: 0; }
+
 aside.modal section {
-  margin: 0 20%;
-  margin-top: 1em;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 section {
@@ -145,6 +156,7 @@ section {
   --xlate-x: 0;
   --xlate-y: 0;
 
+  background-color: var(--grid-bg);
   font-family: monospace;
 }
 
@@ -196,6 +208,11 @@ select, button {
 
 button:hover, button:focus { color: var(--action-focus-color); border-color: var(--action-focus-color); }
 button:active              { color: var(--acting-color); border-color: var(--acting-color); }
+
+button:disabled {
+  color: var(--ui-disabled) !important;
+  border-color: var(--ui-disabled) !important;
+}
 
 fieldset {
   margin: 0.3em 0;
