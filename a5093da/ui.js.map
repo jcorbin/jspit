@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["/Users/jcorbin/borkshop-js/packages/jspit/src/ui.ts"],
+  "sourcesContent": ["export interface Bindings {\n  head: HTMLElement,\n  foot: HTMLElement,\n  main: HTMLElement,\n  menu: HTMLElement,\n  grid: HTMLElement,\n  version: HTMLElement,\n}\n\nexport function show(bound:Partial<Bindings>, should:boolean, running:boolean) {\n  const overlay = should ? '' : 'none';\n  if (bound.head) bound.head.style.display = overlay;\n  if (bound.foot) bound.foot.style.display = overlay;\n  if (bound.grid) bound.grid.style.display = overlay;\n  if (bound.menu) {\n    if (should) bound.menu.classList.remove('modal');\n    else bound.menu.classList.add('modal');\n    bound.menu.style.display = running ? 'none' : '';\n  }\n  if (bound.version) {\n    const parts = window.location.pathname.split('/');\n    bound.version.innerText = parts[parts.length - 2] || 'DEV';\n  }\n}\n"],
+  "mappings": "AASO,qBAAc,OAAyB,QAAgB;AAC5D,QAAM,UAAU,SAAS,KAAK;AAC9B,MAAI,MAAM;AAAM,UAAM,KAAK,MAAM,UAAU;AAC3C,MAAI,MAAM;AAAM,UAAM,KAAK,MAAM,UAAU;AAC3C,MAAI,MAAM;AAAM,UAAM,KAAK,MAAM,UAAU;AAC3C,MAAI,MAAM;AACR,QAAI;AAAQ,YAAM,KAAK,UAAU,OAAO;AAAA;AACnC,YAAM,KAAK,UAAU,IAAI;AAC9B,UAAM,KAAK,MAAM,UAAU,UAAU,SAAS;AAAA;AAEhD,MAAI,MAAM;AACR,UAAM,QAAQ,OAAO,SAAS,SAAS,MAAM;AAC7C,UAAM,QAAQ,YAAY,MAAM,MAAM,SAAS,MAAM;AAAA;AAAA;",
+  "names": []
+}
