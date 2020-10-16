@@ -1,0 +1,10 @@
+html {
+  --main-bg: var(--grey);
+
+  --dla-player: var(--yellow-orange);
+
+  --particle-bg: var(--light-grey);
+  --particle-dead: var(--dark-white);
+  --particle-live: var(--red);
+}
+
