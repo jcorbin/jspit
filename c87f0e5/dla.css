@@ -1,0 +1,18 @@
+html {
+  --main-bg: var(--grey);
+
+  --dla-player: var(--yellow-orange);
+}
+
+.grid .tile.particle {
+  background-color: var(--light-grey);
+  color:            var(--dark-white);
+}
+
+.grid .tile.ghost {
+  display: none;
+}
+
+.grid .tile.particle.live {
+  color: var(--red);
+}
