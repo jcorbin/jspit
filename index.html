@@ -9,10 +9,9 @@
     <meta http-equiv="expires" content="Fri, 01 Jan 1990 00:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
 
-    <base href="." />
     <link rel="stylesheet" type="text/css" href="index.css" />
 
-    <title>jspit: Welcome screen</title>
+    <title>jspit: Dead End</title>
   </head>
   <body>
 
@@ -20,33 +19,14 @@
       <aside class="modal">
 
         <section>
+          <h3>Dead End</h3>
           <p>
-            Welcome to the Pits of JavaScript, where we experiment our way towards
-            a "game", spinning demos and other pieces of interest as the spirit
-            moves
+            Sorry, you've reached a dead-end pit; the world has moved on to:
+            <a href="https://jspit.vercel.app">jspit.vercel.app</a>
           </p>
-
-          <h3>Available Demos</h3>
-          <dl>
-
-            <dt><a href="colorboop.html">ColorBoop</a></dt><dd>
-              Basic demonstration of <code>TileGrid</code> movement and collisions.
-            </dd>
-
-            <dt><a href="dla.html">DLA</a></dt><dd>
-              An interactive demonstration of Diffusion Limited Aggregation
-              applied to procedural map generation.
-            </dd>
-
-          </dl>
         </section>
 
         <section align="center">
-          <div class="version" style="float: right">
-            version:<span class="current"></span>
-            <span class="latest"><a></a></span>
-          </div>
-
           <div class="linkbar">
             <span><a href="//github.com/borkshop/js/tree/main/packages/jspit">Github</a></span>
             <span><a href="//github.com/borkshop/js/blob/main/packages/jspit/stream.md">Dev Log</a></span>
@@ -55,14 +35,6 @@
 
       </aside>
     </main>
-
-    <script type="module">
-      import {show} from './ui.js';
-      show({
-        version: document.querySelector('.version .current'),
-        latest:  document.querySelector('.version .latest'),
-      }, false, false);
-    </script>
 
   </body>
 
